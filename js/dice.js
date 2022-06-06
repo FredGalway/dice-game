@@ -15,7 +15,7 @@ function getRandomInt(min, max) {
 function rollDice() {
 
     document.getElementById("score").innerHTML = score;
-    document.getElementById("result").innerHTML = result;
+    // document.getElementById("result").innerHTML = result;
     // Attribution d'un nombre entre 1 et 7
     let randNum = getRandomInt(1, 7)
     console.log(randNum)
@@ -55,3 +55,5 @@ function rollDice() {
 rollDice();
 // on click eventlistener for the button element
 rollBtn.addEventListener("click", rollDice);
+
+// INTÉGRER COMPLÈTEMENT L'INTERFACE DU JEU STUDI EN CSS
