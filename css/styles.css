@@ -2,74 +2,217 @@
 
 * {
     box-sizing: border-box;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: sans-serif;
-    background: rgb(255, 220, 178);
     color: white;
+    font-family: 'Lato', sans-serif;
+    background-image: url('images/wood-texture.png');
+    background-color: black;
 }
 
 
-/* styling for Scene */
+/* Styles du Jeu */
 
-.scene {
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    perspective: 600px;
+main {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1024px;
+    height: 600px;
 }
 
-.rollBtn {
-    background: rgb(39, 39, 39);
-    color: white;
-    border: none;
-    margin: auto 0;
-    font-size: 1em;
-    margin-top: 1em;
-    width: 200px;
-    height: 40px;
-    margin-top: 80px;
+.gradient_div {
+    display: block;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    padding: 2rem;
+    color: #8F8F8F;
+    background: #fff;
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+
+.gradient_div:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -10px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, #cab9a5 -2.98%, #9E775E 68.14%, #996a52 104.54%);
+}
+
+#left_bg {
+    display: block;
+    position: absolute;
+    width: 512px;
+    height: 100%;
+    background-color: #e7e7e7;
+    left: 0px;
+    margin-top: -32px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1;
+    display: none;
+}
+
+#right_bg {
+    display: block;
+    position: absolute;
+    width: 512px;
+    height: 100%;
+    background-color: #e7e7e7;
+    right: 0px;
+    margin-left: -33px;
+    margin-top: -32px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 0;
+}
+
+.player_title {
+    font-weight: 100;
+    font-size: 33px;
+}
+
+.score {
+    font-weight: 200;
+    font-size: 105px;
+}
+
+#game_board {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 94%;
+    height: auto;
+    z-index: 5;
+}
+
+#left_column {
+    display: table-cell;
+    text-align: center;
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+
+#center_column {
+    display: table-cell;
+    text-align: center;
+    width: 30%;
+    height: auto;
+    text-align: center;
+}
+
+#right_column {
+    display: table-cell;
+    text-align: center;
+    width: 30%;
+    height: 400px;
+}
+
+.current {
+    display: inline-block;
+    width: 155px;
+    height: 60px;
+    font-size: 12px;
+    padding-top: 3%;
+    color: #fff;
+    background-color: #9E775E;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bt_board {
+    font-family: 'Lato', sans-serif;
+    display: table-cell;
+    font-size: 17px;
+    width: 165px;
+    height: 38px;
+    color: #fff;
+    background-color: #9E775E;
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.bt_board:hover {
+    background-color: #EA4D4C;
+    transition: background-color .5s;
+}
+
+.icon {
+    display: inline-table;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-left: 15px;
+}
+
+.roll_dice {
+    margin-top: 60px;
 }
 
 
 /* Style du dé */
 
 .cube {
-    width: 200px;
-    height: 200px;
+    display: block;
+    width: 130px;
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55px;
     position: relative;
     transform-style: preserve-3d;
-    transform: translateZ(-100px);
     transition: transform .7s;
     background-color: #e7e7e7;
+}
+
+#result {
+    margin-top: 5%;
 }
 
 
 /* Animation des faces du Dé */
 
 .cube.show-1 {
-    transform: translateZ(-100px) rotateY( 0deg);
+    transform: translateZ(-65px) rotateY( 0deg);
 }
 
 .cube.show-2 {
-    transform: translateZ(-100px) rotateY(-180deg);
+    transform: translateZ(-65px) rotateY(-180deg);
 }
 
 .cube.show-3 {
-    transform: translateZ(-100px) rotateY( -90deg);
+    transform: translateZ(-65px) rotateY( -90deg);
 }
 
 .cube.show-4 {
-    transform: translateZ(-100px) rotateY( 90deg);
+    transform: translateZ(-65px) rotateY( 90deg);
 }
 
 .cube.show-5 {
-    transform: translateZ(-100px) rotateX( -90deg);
+    transform: translateZ(-65px) rotateX( -90deg);
 }
 
 .cube.show-6 {
-    transform: translateZ(-100px) rotateX( 90deg);
+    transform: translateZ(-65px) rotateX( 90deg);
 }
 
 
@@ -77,23 +220,23 @@ body {
 
 .cube__face {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    box-shadow: inset 0 7px white, inset 0 -7px #bbb, inset 7px 0 #d7d7d7, inset -7px 0 #d7d7d7;
-    line-height: 200px;
+    width: 130px;
+    height: 130px;
+    box-shadow: inset 0 3.5px white, inset 0 -3.5px #bbb, inset 3.5px 0 #d7d7d7, inset -3.5px 0 #d7d7d7;
+    line-height: 130px;
     font-size: 40px;
     font-weight: bold;
     color: white;
     text-align: center;
-    border-radius: 8%;
+    border-radius: 6%;
     background-color: #e7e7e7;
 }
 
 .cube :nth-child(1) {
     background-image: url("images/face_01.svg");
     background-color: crimson;
-    box-shadow: inset 0 7px rgb(141, 37, 37), inset 0 -7px rgb(134, 26, 26), inset 7px 0 #dd3838, inset -7px 0 #9c1616;
-    line-height: 200px;
+    box-shadow: inset 0 3.5px rgb(141, 37, 37), inset 0 -3.5px rgb(134, 26, 26), inset 3.5px 0 #dd3838, inset -3.5px 0 #9c1616;
+    line-height: 130px;
 }
 
 .cube :nth-child(2) {
@@ -120,29 +263,29 @@ body {
 /* individual styling for each numbers face */
 
 .cube__face--1 {
-    transform: rotateY( 0deg) translateZ(100px);
+    transform: rotateY( 0deg) translateZ(65px);
 }
 
 .cube__face--2 {
-    transform: rotateY(180deg) translateZ(100px);
+    transform: rotateY(180deg) translateZ(65px);
 }
 
 .cube__face--3 {
-    transform: rotateY( 90deg) translateZ(100px);
+    transform: rotateY( 90deg) translateZ(65px);
 }
 
 .cube__face--4 {
-    transform: rotateY(-90deg) translateZ(100px);
+    transform: rotateY(-90deg) translateZ(65px);
 }
 
 .cube__face--5 {
-    transform: rotateX( 90deg) translateZ(100px);
+    transform: rotateX( 90deg) translateZ(65px);
 }
 
 .cube__face--6 {
-    transform: rotateX(-90deg) translateZ(100px);
+    transform: rotateX(-90deg) translateZ(65px);
 }
 
 label {
-    margin-right: 10px;
+    margin-right: 0px;
 }

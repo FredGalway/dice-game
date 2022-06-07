@@ -1,5 +1,5 @@
 let cube = document.querySelector('.cube');
-let rollBtn = document.querySelector('.rollBtn');
+let roll_dice = document.querySelector('.roll_dice');
 let currentClass = '';
 let score = 0;
 let result = "Your turn";
@@ -14,7 +14,7 @@ function getRandomInt(min, max) {
 
 function rollDice() {
 
-    document.getElementById("score").innerHTML = score;
+    document.getElementById("score1").innerHTML = score;
     // document.getElementById("result").innerHTML = result;
     // Attribution d'un nombre entre 1 et 7
     let randNum = getRandomInt(1, 7)
@@ -54,6 +54,6 @@ function rollDice() {
 // set initial side
 rollDice();
 // on click eventlistener for the button element
-rollBtn.addEventListener("click", rollDice);
+roll_dice.addEventListener("click", rollDice);
 
 // INTÉGRER COMPLÈTEMENT L'INTERFACE DU JEU STUDI EN CSS
