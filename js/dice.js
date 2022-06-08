@@ -72,12 +72,10 @@ function rollDice() {
 
     // Cas Dé autres face
     if (showClass != "show-1") {
-        score1 = score1 + randNum;
         current_score1 = current_score1 + randNum;
         console.log("current score = " + current_score1);
         result = "Your turn";
         document.getElementById("current_score1").innerHTML = current_score1;
-        document.getElementById("score1").innerHTML = score1;
     }
 
     // Score
@@ -92,6 +90,8 @@ function rollDice() {
 
 function holdResult() {
     console.log("Hold");
+    score1 = current_score1;
+    document.getElementById("score1").innerHTML = score1;
 }
 
 // Lancement des fonctions sur l'évènement : addEventListener
