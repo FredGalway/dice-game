@@ -1,59 +1,100 @@
+// VARIABLES DU JEU DE DÉ
+
+// Colonne centrale
+let new_game = document.querySelector('#new_game');
 let cube = document.querySelector('.cube');
 let roll_dice = document.querySelector('.roll_dice');
+let hold = document.querySelector('.hold');
+
+// Colonnes Players
 let currentClass = '';
-let score = 0;
+let score1 = 0;
+let score2 = 0;
+let current_score1 = 0;
+let current_score2 = 0;
 let result = "Your turn";
 
+// Fonction lancement des paramètres du jeu
+function initialize() {
+    score1 = 0;
+    score2 = 0;
+    current_score1 = 0;
+    current_score2 = 0;
 
-// Fonction de nombre aléatoire 
+    document.getElementById("score1").innerHTML = score1;
+    document.getElementById("score2").innerHTML = score2;
+    document.getElementById("current_score1").innerHTML = current_score1;
+    document.getElementById("current_score2").innerHTML = current_score2;
+}
+
+initialize();
+
+// Fonction lancement du Jeu 
+function newGame() {
+    cube.classList.remove(currentClass);
+    cube.classList.add("showClass-1");
+    initialize();
+}
+// Fonction de nombres aléatoires 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+// Fonction du Jeu de Dé en 3D
 function rollDice() {
 
-    document.getElementById("score1").innerHTML = score;
-    // document.getElementById("result").innerHTML = result;
     // Attribution d'un nombre entre 1 et 7
     let randNum = getRandomInt(1, 7)
     console.log(randNum)
     let showClass = 'show-' + randNum;
     console.log(showClass)
+
+    // Modifications dynamique de class css sur l'élément du Dé 3D (cube)
     if (currentClass) {
         cube.classList.remove(currentClass);
     }
     cube.classList.add(showClass);
     currentClass = showClass;
-    console.log(cube);
 
-    // Conditions du Jeu
-    if (showClass != "show-1") {
-        score = score + randNum;
-        console.log("score = " + score);
+    // CONDITIONS DU JEU
+
+    // Cas Dé face 1
+    if (showClass == "show-1") {
+        score1 = 0;
+        current_score1 = 0;
+        result = "Game Lost!";
+        document.getElementById("current_score1").innerHTML = current_score1;
+        document.getElementById("score1").innerHTML = score1;
+        console.log("Perdu!");
     }
 
-    if (score >= 15) {
+    // Cas Dé autres face
+    if (showClass != "show-1") {
+        score1 = score1 + randNum;
+        current_score1 = current_score1 + randNum;
+        console.log("current score = " + current_score1);
+        result = "Your turn";
+        document.getElementById("current_score1").innerHTML = current_score1;
+        document.getElementById("score1").innerHTML = score1;
+    }
+
+    // Score
+    if (score1 >= 30) {
         result = "Game Won!"
         console.log("Gagné!");
     }
-    if (showClass == "show-1") {
 
-        result = "Game Lost!";
-        console.log("Perdu!");
-
-    } else if ((result == "Game Won!") || (result == "Game Lost!")) {
-        score = 0;
-        score = score + randNum;
-        result = "Your turn";
-    }
     document.getElementById("result").innerHTML = result;
+
 }
 
-// set initial side
-rollDice();
-// on click eventlistener for the button element
-roll_dice.addEventListener("click", rollDice);
+function holdResult() {
+    console.log("Hold");
+}
 
-// INTÉGRER COMPLÈTEMENT L'INTERFACE DU JEU STUDI EN CSS
+// Lancement des fonctions sur l'évènement : addEventListener
+new_game.addEventListener("click", newGame);
+roll_dice.addEventListener("click", rollDice);
+hold.addEventListener("click", holdResult);

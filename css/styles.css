@@ -72,7 +72,7 @@ main {
     position: absolute;
     width: 512px;
     height: 100%;
-    background-color: #e7e7e7;
+    background-color: #f5f5f5;
     right: 0px;
     margin-left: -33px;
     margin-top: -32px;
@@ -89,6 +89,11 @@ main {
 .score {
     font-weight: 200;
     font-size: 105px;
+}
+
+#current_score1 {
+    display: block;
+    font-size: 25px;
 }
 
 #game_board {
@@ -131,7 +136,7 @@ main {
     font-size: 12px;
     padding-top: 3%;
     color: #fff;
-    background-color: #9E775E;
+    background-color: #EA4D4C;
     border-radius: 5px;
     text-align: center;
     vertical-align: middle;
@@ -144,7 +149,7 @@ main {
     width: 165px;
     height: 38px;
     color: #fff;
-    background-color: #9E775E;
+    background-color: #bba285;
     border-radius: 5px;
     border: 0;
     text-align: center;
@@ -173,8 +178,8 @@ main {
 
 .cube {
     display: block;
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 55px;
@@ -185,34 +190,39 @@ main {
 }
 
 #result {
-    margin-top: 5%;
+    display: inline-table;
+    padding-top: 5%;
+    margin-top: -1px;
+    width: 145px;
+    background-image: url("images/dice-shadow.png");
+    background-repeat: repeat-x;
 }
 
 
 /* Animation des faces du Dé */
 
 .cube.show-1 {
-    transform: translateZ(-65px) rotateY( 0deg);
+    transform: translateZ(-80px) rotateY( 0deg);
 }
 
 .cube.show-2 {
-    transform: translateZ(-65px) rotateY(-180deg);
+    transform: translateZ(-80px) rotateY(-180deg);
 }
 
 .cube.show-3 {
-    transform: translateZ(-65px) rotateY( -90deg);
+    transform: translateZ(-80px) rotateY( -90deg);
 }
 
 .cube.show-4 {
-    transform: translateZ(-65px) rotateY( 90deg);
+    transform: translateZ(-80px) rotateY( 90deg);
 }
 
 .cube.show-5 {
-    transform: translateZ(-65px) rotateX( -90deg);
+    transform: translateZ(-80px) rotateX( -90deg);
 }
 
 .cube.show-6 {
-    transform: translateZ(-65px) rotateX( 90deg);
+    transform: translateZ(-80px) rotateX( 90deg);
 }
 
 
@@ -220,10 +230,10 @@ main {
 
 .cube__face {
     position: absolute;
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
     box-shadow: inset 0 3.5px white, inset 0 -3.5px #bbb, inset 3.5px 0 #d7d7d7, inset -3.5px 0 #d7d7d7;
-    line-height: 130px;
+    line-height: 160px;
     font-size: 40px;
     font-weight: bold;
     color: white;
@@ -236,7 +246,7 @@ main {
     background-image: url("images/face_01.svg");
     background-color: crimson;
     box-shadow: inset 0 3.5px rgb(141, 37, 37), inset 0 -3.5px rgb(134, 26, 26), inset 3.5px 0 #dd3838, inset -3.5px 0 #9c1616;
-    line-height: 130px;
+    line-height: 160px;
 }
 
 .cube :nth-child(2) {
@@ -263,27 +273,27 @@ main {
 /* individual styling for each numbers face */
 
 .cube__face--1 {
-    transform: rotateY( 0deg) translateZ(65px);
+    transform: rotateY( 0deg) translateZ(80px);
 }
 
 .cube__face--2 {
-    transform: rotateY(180deg) translateZ(65px);
+    transform: rotateY(180deg) translateZ(80px);
 }
 
 .cube__face--3 {
-    transform: rotateY( 90deg) translateZ(65px);
+    transform: rotateY( 90deg) translateZ(80px);
 }
 
 .cube__face--4 {
-    transform: rotateY(-90deg) translateZ(65px);
+    transform: rotateY(-90deg) translateZ(80px);
 }
 
 .cube__face--5 {
-    transform: rotateX( 90deg) translateZ(65px);
+    transform: rotateX( 90deg) translateZ(80px);
 }
 
 .cube__face--6 {
-    transform: rotateX(-90deg) translateZ(65px);
+    transform: rotateX(-90deg) translateZ(80px);
 }
 
 label {
