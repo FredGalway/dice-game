@@ -17,7 +17,7 @@ let ROUND_player1 = 0;
 let ROUND_player2 = 0;
 let GLOBAL_player1 = 0;
 let GLOBAL_player2 = 0;
-let win_score = 50;
+let win_score = 30;
 let result;
 let audio_turn_lost = new Audio("audio/lost.wav");
 audio_turn_lost.volume = 0.3;
@@ -99,12 +99,14 @@ function player1() {
     }
 
     // Cas Dé autres faces
-    if (showClass != "show-1") {
+    else if (showClass != "show-1") {
         ROUND_player1_tmp = ROUND_player1_tmp + randNum;
         ROUND_player1 = ROUND_player1 + randNum;
         console.log("Player 1 / ROUND Score tmp = " + ROUND_player1_tmp);
         document.getElementById("ROUND_player1").textContent = ROUND_player1_tmp;
     }
+
+
 }
 
 // JOUEUR 2 / CONDITIONS DU JEU
@@ -130,12 +132,13 @@ function player2() {
     }
 
     // Cas Dé autres faces
-    if (showClass != "show-1") {
+    else if (showClass != "show-1") {
         ROUND_player2_tmp = ROUND_player2_tmp + randNum;
         ROUND_player2 = ROUND_player2 + randNum;
         console.log("Player 2 / ROUND Score tmp = " + ROUND_player2_tmp);
         document.getElementById("ROUND_player2").textContent = ROUND_player2_tmp;
     }
+
 }
 
 // Lancement des fonctions sur l'évènement click 
@@ -147,35 +150,32 @@ hold.addEventListener("click", holdResult);
 function holdResult() {
 
     if (current_player == 'p1') {
+        console.clear();
+        console.log("HOLD Score Player 1");
         GLOBAL_player1 = ROUND_player1;
         ROUND_player1_tmp = 0;
         document.getElementById("GLOBAL_player1").textContent = GLOBAL_player1;
         document.getElementById("ROUND_player1").textContent = ROUND_player1_tmp;
         console.log("Player 1 / GLOBAL Score = " + GLOBAL_player1);
-        console.log("Player 1 / ROUND Score = " + ROUND_player1_tmp);
-
-        // Maximum GLOBAL Score Player1
-        if (GLOBAL_player1 >= win_score) {
-            result = "Player 1 wins!"
-            document.getElementById("result").textContent = result;
-        }
+        console.log("Player 1 / ROUND tmp Score = " + ROUND_player1_tmp);
+        console.log("Player 1 / ROUND Score = " + ROUND_player1);
 
     } else if (current_player == 'p2') {
+        console.clear();
+        console.log("HOLD Score Player 2");
         GLOBAL_player2 = ROUND_player2;
         ROUND_player2_tmp = 0;
         document.getElementById("GLOBAL_player2").textContent = GLOBAL_player2;
         document.getElementById("ROUND_player2").textContent = ROUND_player2_tmp;
         console.log("Player 2 / GLOBAL Score = " + GLOBAL_player2);
-        console.log("Player 2 / ROUND Score = " + ROUND_player2_tmp);
-
-        // Maximum GLOBAL Score Player1
-        if (GLOBAL_player2 >= win_score) {
-            result = "Player 2 wins!"
-            document.getElementById("result").textContent = result;
-        }
+        console.log("Player 2 / ROUND tmp Score = " + ROUND_player2_tmp);
+        console.log("Player 2 / ROUND Score = " + ROUND_player2);
     }
+
     switchPlayer();
 }
+
+
 
 // Intervertir les joueurs
 function switchPlayer() {
@@ -198,4 +198,18 @@ function switchPlayer() {
         console.log('Player1');
     }
     document.getElementById("result").textContent = result;
+    winner();
+}
+
+function winner() {
+    // Maximum GLOBAL Score Player1
+    if (GLOBAL_player1 >= win_score) {
+        result = "Player 1 wins!"
+        document.getElementById("result").textContent = result;
+    }
+    // Maximum GLOBAL Score Player1
+    else if (GLOBAL_player2 >= win_score) {
+        result = "Player 2 wins!"
+        document.getElementById("result").textContent = result;
+    }
 }
