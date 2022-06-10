@@ -91,7 +91,8 @@ main {
     font-size: 105px;
 }
 
-#current_score1 {
+#ROUND_player1,
+#ROUND_player2 {
     display: block;
     font-size: 25px;
 }
