@@ -54,7 +54,6 @@ function dynamic_faces_and_classes() {
     // Attribution d'un nombre entre 1 et 7
     randNum = getRandomInt(1, 7)
     showClass = 'show-' + randNum;
-    //console.log(showClass);
 
     // Modifications dynamique de class css sur l'élément du Dé 3D (cube)
     if (currentClass) {
@@ -74,12 +73,10 @@ function player1() {
 
     // Cas Dé face 1
     if (showClass == "show-1") {
-        GLOBAL_player1 = 0;
         ROUND_player1 = 0;
         console.log("Player 1 / ROUND Score = " + ROUND_player1);
         result = "Game Lost!";
         document.getElementById("ROUND_player1").innerHTML = ROUND_player1;
-        document.getElementById("GLOBAL_player1").innerHTML = GLOBAL_player1;
         //console.log("Perdu!");
     }
 
@@ -91,7 +88,7 @@ function player1() {
         document.getElementById("ROUND_player1").innerHTML = ROUND_player1;
     }
 
-    // Score
+    // Maximum GLOBAL Score Player1
     if (GLOBAL_player1 >= 30) {
         result = "Game Won!"
             //console.log("Gagné!");
@@ -109,12 +106,10 @@ function player2() {
 
     // Cas Dé face 1
     if (showClass == "show-1") {
-        GLOBAL_player2 = 0;
         ROUND_player2 = 0;
         console.log("Player 2 / ROUND Score = " + ROUND_player2);
         result = "Game Lost!";
         document.getElementById("ROUND_player2").innerHTML = ROUND_player2;
-        document.getElementById("GLOBAL_player2").innerHTML = GLOBAL_player2;
         //console.log("Perdu!");
     }
 
@@ -126,8 +121,8 @@ function player2() {
         document.getElementById("ROUND_player2").innerHTML = ROUND_player2;
     }
 
-    // Score
-    if (GLOBAL_player1 >= 30) {
+    // Maximum GLOBAL Score Player2
+    if (GLOBAL_player2 >= 30) {
         result = "Game Won!"
             //console.log("Gagné!");
     }
@@ -135,36 +130,42 @@ function player2() {
     document.getElementById("result").innerHTML = result;
 }
 
-
-// Lancement des fonctions sur l'évènement : addEventListener
+// Lancement des fonctions sur l'évènement click
 new_game.addEventListener("click", newGame);
 roll_dice.addEventListener("click", player1)
 hold.addEventListener("click", holdResult);
 
-GLOBAL_player1 = ROUND_player1;
-document.getElementById("GLOBAL_player1").innerHTML = GLOBAL_player1;
-
-
+// Bouton enregistrement du Score ROUND dans GLOBAL et permutation du Joueur 
 function holdResult() {
+    if (current_player == 'p1') {
+        GLOBAL_player1 = ROUND_player1;
+        document.getElementById("GLOBAL_player1").innerHTML = GLOBAL_player1;
+        console.log("Player 1 / GLOBAL Score = " + GLOBAL_player1);
+        ROUND_player1 = 0;
+        document.getElementById("ROUND_player1").innerHTML = ROUND_player1;
+    } else if (current_player == 'p2') {
+        GLOBAL_player2 = ROUND_player2;
+        document.getElementById("GLOBAL_player2").innerHTML = GLOBAL_player2;
+        console.log("Player 2 / GLOBAL Score = " + GLOBAL_player2);
+        ROUND_player2 = 0;
+        document.getElementById("ROUND_player2").innerHTML = ROUND_player2;
+    }
     switchPlayer();
 }
 
-// Switch Players
-
+// Intervertir les joueurs
 function switchPlayer() {
     if (current_player == 'p1') {
         roll_dice.addEventListener("click", player2);
         roll_dice.removeEventListener("click", player1);
         current_player = 'p2';
         console.log('Player2');
-        GLOBAL_player2 = ROUND_player2;
-        document.getElementById("GLOBAL_player2").innerHTML = GLOBAL_player2;
+
     } else {
         current_player = 'p1';
         roll_dice.addEventListener("click", player1);
         roll_dice.removeEventListener("click", player2);
         console.log('Player1');
-        GLOBAL_player1 = ROUND_player1;
-        document.getElementById("GLOBAL_player1").innerHTML = GLOBAL_player1;
+
     }
 }
