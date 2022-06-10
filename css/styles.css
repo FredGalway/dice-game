@@ -195,6 +195,7 @@ main {
     padding-top: 5%;
     margin-top: -1px;
     width: 145px;
+    height: 60px;
     background-image: url("images/dice-shadow.png");
     background-repeat: repeat-x;
 }
