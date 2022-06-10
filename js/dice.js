@@ -1,12 +1,12 @@
 // VARIABLES DU JEU DE DÉ
 
-// Attribution des éléments HTML 
+// Variables des Boutons HTML et du Cube Dé(dice)
 let new_game = document.querySelector('#new_game');
 let cube = document.querySelector('.cube');
 let roll_dice = document.querySelector('.roll_dice');
 let hold = document.querySelector('.hold');
 
-// Nombre aléatoire et attribution dynamique de class
+// Variables du Jeu
 let randNum;
 let showClass;
 let currentClass = '';
@@ -21,12 +21,21 @@ let result = "Player 1's turn";
 
 // Fonction lancement des paramètres du jeu
 function initialize() {
+    ROUND_player1_tmp = 0;
+    ROUND_player2_tmp = 0;
+    ROUND_player1 = 0;
+    ROUND_player2 = 0;
+    GLOBAL_player1 = 0;
+    GLOBAL_player2 = 0;
+
     console.log("Nouvelle Partie / Player 1 " + current_player);
     // Remplacement de innerHTML par textcontent 
-    document.getElementById("GLOBAL_player1").textContent = GLOBAL_player1;
-    document.getElementById("GLOBAL_player2").textContent = GLOBAL_player2;
     document.getElementById("ROUND_player1").textContent = ROUND_player1_tmp;
     document.getElementById("ROUND_player2").textContent = ROUND_player2_tmp;
+    document.getElementById("ROUND_player1").textContent = ROUND_player1;
+    document.getElementById("ROUND_player2").textContent = ROUND_player2;
+    document.getElementById("GLOBAL_player1").textContent = GLOBAL_player1;
+    document.getElementById("GLOBAL_player2").textContent = GLOBAL_player2;
 
     console.clear();
 }
@@ -59,14 +68,10 @@ function dynamic_dice_faces() {
     currentClass = showClass;
 }
 
-// Fonction du Jeu de Dé en 3D
-
-// PLAYER 1
+// JOUEUR 1 / CONDITIONS DU JEU
 function player1() {
 
     dynamic_dice_faces();
-
-    // CONDITIONS DU JEU
 
     // Cas Dé face 1
     if (showClass == "show-1") {
@@ -84,16 +89,13 @@ function player1() {
         result = "Your turn";
         document.getElementById("ROUND_player1").textContent = ROUND_player1_tmp;
     }
-
     document.getElementById("result").textContent = result;
 }
 
-// PLAYER 2
+// JOUEUR 2 / CONDITIONS DU JEU
 function player2() {
 
     dynamic_dice_faces();
-
-    // CONDITIONS DU JEU
 
     // Cas Dé face 1
     if (showClass == "show-1") {
@@ -112,7 +114,6 @@ function player2() {
         result = "Your turn";
         document.getElementById("ROUND_player2").textContent = ROUND_player2_tmp;
     }
-
     document.getElementById("result").textContent = result;
 }
 
@@ -159,12 +160,10 @@ function switchPlayer() {
         roll_dice.removeEventListener("click", player1);
         current_player = 'p2';
         console.log('Player2');
-
     } else {
         current_player = 'p1';
         roll_dice.addEventListener("click", player1);
         roll_dice.removeEventListener("click", player2);
         console.log('Player1');
-
     }
 }
