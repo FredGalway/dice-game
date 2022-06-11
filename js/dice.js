@@ -6,6 +6,11 @@ let roll_dice = document.querySelector('.roll_dice');
 let hold = document.querySelector('.hold');
 let cube = document.querySelector('.cube');
 
+let player1_title_witness_active = document.querySelector('#player1 .witness');
+let player1_title_witness_default = document.querySelector('#player1 .witness');
+let player2_title_witness_active = document.querySelector('#player2 .witness');
+let player2_title_witness_default = document.querySelector('#player2 .witness');
+
 // Variables du Jeu
 let randNum;
 let showClass;
@@ -25,6 +30,7 @@ audio_turn_lost.volume = 0.3;
 
 // Fonction lancement des paramètres du jeu
 function initialize() {
+    player1_title_witness_active.style.opacity = 1;
     current_player = 'p1';
     roll_dice.addEventListener("click", player1);
     roll_dice.removeEventListener("click", player2);
@@ -150,6 +156,8 @@ hold.addEventListener("click", holdResult);
 function holdResult() {
 
     if (current_player == 'p1') {
+        player1_title_witness_active.style.opacity = 1;
+        player2_title_witness_active.style.opacity = 0;
         console.clear();
         console.log("HOLD Score Player 1");
         GLOBAL_player1 = ROUND_player1;
@@ -161,6 +169,8 @@ function holdResult() {
         console.log("Player 1 / ROUND Score = " + ROUND_player1);
 
     } else if (current_player == 'p2') {
+        player1_title_witness_active.style.opacity = 0;
+        player2_title_witness_active.style.opacity = 1;
         console.clear();
         console.log("HOLD Score Player 2");
         GLOBAL_player2 = ROUND_player2;
@@ -184,6 +194,8 @@ function switchPlayer() {
     ROUND_player2_tmp = 0;
 
     if (current_player == 'p1') {
+        player1_title_witness_active.style.opacity = 1;
+        player2_title_witness_active.style.opacity = 0;
         roll_dice.addEventListener("click", player2);
         roll_dice.removeEventListener("click", player1);
         current_player = 'p2';
@@ -191,6 +203,8 @@ function switchPlayer() {
         console.log('Player2');
 
     } else if (current_player == 'p2') {
+        player1_title_witness_active.style.opacity = 0;
+        player2_title_witness_active.style.opacity = 1;
         roll_dice.addEventListener("click", player1);
         roll_dice.removeEventListener("click", player2);
         current_player = 'p1';
