@@ -10,6 +10,7 @@ let player2_title_witness_active = document.querySelector('#player2 .witness');
 let player1_current_active = document.querySelector('#left_column .current');
 let player2_current_active = document.querySelector('#right_column .current');
 let players_background_active = document.querySelector('#active_bg');
+let cup = document.querySelector('#cup');
 
 // Variables du Jeu
 let randNum, showClass, currentClass, game_status;
@@ -18,7 +19,7 @@ let ROUND_player1;
 let ROUND_player2;
 let GLOBAL_player1;
 let GLOBAL_player2;
-let win_score = 40;
+let win_score = 100;
 let audio_turn_lost = new Audio("audio/lost.wav");
 audio_turn_lost.volume = 0.3;
 
@@ -35,6 +36,7 @@ function initialize() {
     GLOBAL_player1 = 0;
     GLOBAL_player2 = 0;
     game_status = "Player 1's turn";
+    cup.style.display = 'none';
 
     // Remplacement de innerHTML par textcontent 
     document.getElementById("ROUND_player1").textContent = ROUND_player1;
@@ -179,6 +181,7 @@ function winner() {
         document.getElementById("game_status").textContent = game_status;
         roll_dice.style.display = 'none';
         hold.style.display = 'none';
+        cup.style.display = 'inline-block';
 
         player1_title_witness_active.style.opacity = 1;
         player2_title_witness_active.style.opacity = 0;
@@ -192,6 +195,7 @@ function winner() {
         document.getElementById("game_status").textContent = game_status;
         roll_dice.style.display = 'none';
         hold.style.display = 'none';
+        cup.style.display = 'inline-block';
 
         player1_title_witness_active.style.opacity = 0;
         player2_title_witness_active.style.opacity = 1;

@@ -190,6 +190,14 @@ main {
     background-repeat: repeat-x;
 }
 
+#cup {
+    display: inline-block;
+    width: 117px;
+    height: 117px;
+    background-image: url("images/cup.png");
+    background-repeat: no-repeat;
+}
+
 
 /* Style du dé */
 
