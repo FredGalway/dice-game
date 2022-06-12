@@ -30,9 +30,9 @@ function initialize() {
     current_player = 'p1';
     player1_title_witness_active.style.opacity = 1;
     player2_title_witness_active.style.opacity = 0;
-    player1_current_active.style.background = '#ea4d4c';
-    player2_current_active.style.background = '#ccc';
-    players_background_active.style.right = 490 + 'px';
+    player1_current_active.style.background = '#3e8121';
+    player2_current_active.style.background = '#868686';
+    players_background_active.style.right = 0 + 'px';
     roll_dice.addEventListener("click", player1);
     roll_dice.removeEventListener("click", player2);
     ROUND_player1_tmp = 0;
@@ -63,15 +63,15 @@ function active_player() {
     if (current_player != 'p1') {
         player1_title_witness_active.style.opacity = 1;
         player2_title_witness_active.style.opacity = 0;
-        player1_current_active.style.background = '#ea4d4c';
-        player2_current_active.style.background = '#ccc';
-        players_background_active.style.right = 490 + 'px';
+        player1_current_active.style.background = '#3e8121';
+        player2_current_active.style.background = '#868686';
+        players_background_active.style.right = 0 + 'px';
     } else {
         player1_title_witness_active.style.opacity = 0;
         player2_title_witness_active.style.opacity = 1;
-        player1_current_active.style.background = '#ccc';
-        player2_current_active.style.background = '#ea4d4c';
-        players_background_active.style.right = 0 + 'px';
+        player1_current_active.style.background = '#868686';
+        player2_current_active.style.background = '#3e8121';
+        players_background_active.style.right = 490 + 'px';
     }
 }
 
