@@ -124,7 +124,7 @@ main {
 
 #ROUND_player1,
 #ROUND_player2 {
-    font-weight: 200;
+    font-weight: 300;
     display: block;
     font-size: 25px;
 }
@@ -163,7 +163,7 @@ main {
 }
 
 .bt_board {
-    font-weight: 200;
+    font-weight: 300;
     display: table-cell;
     font-size: 17px;
     width: 165px;
@@ -193,13 +193,13 @@ main {
     margin-top: 60px;
 }
 
-#result {
+#game_status {
     display: inline-table;
     padding-top: 5%;
     margin-top: -1px;
     width: 145px;
     height: 60px;
-    font-weight: 400;
+    font-weight: 300;
     background-image: url("images/dice-shadow.png");
     background-repeat: repeat-x;
 }
