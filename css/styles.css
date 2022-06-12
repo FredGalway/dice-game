@@ -23,7 +23,7 @@ main {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 980px;
+    width: 1000px;
     height: 600px;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 25px 20px -20px;
 }
@@ -62,13 +62,13 @@ main {
     width: 50%;
     height: 100%;
     margin-top: -32px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius: 10px;
     z-index: 1;
 }
 
 .score {
-    font-size: 105px;
+    font-size: 180px;
+    margin-bottom: 65px;
 }
 
 .current {
@@ -88,6 +88,7 @@ main {
 .player_title {
     font-size: 33px;
     margin-left: 10%;
+    margin-bottom: 30px;
 }
 
 #player1 .witness,
@@ -115,6 +116,7 @@ main {
 
 #game_board {
     display: flex;
+    margin-top: 6%;
     position: absolute;
     flex-direction: row;
     justify-content: space-between;
@@ -126,7 +128,7 @@ main {
 #left_column {
     display: table-cell;
     text-align: center;
-    width: 30%;
+    width: 38%;
     height: 400px;
     float: left;
 }
@@ -134,7 +136,7 @@ main {
 #center_column {
     display: table-cell;
     text-align: center;
-    width: 30%;
+    width: 24%;
     height: auto;
     text-align: center;
 }
@@ -142,7 +144,7 @@ main {
 #right_column {
     display: table-cell;
     text-align: center;
-    width: 30%;
+    width: 38%;
     height: 400px;
 }
 
@@ -174,7 +176,7 @@ main {
 }
 
 .roll_dice {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 #game_status {
@@ -197,7 +199,7 @@ main {
     height: 160px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 55px;
+    margin-top: 50px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform .5s;

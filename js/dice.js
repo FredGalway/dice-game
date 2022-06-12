@@ -66,7 +66,7 @@ function active_player() {
         player2_title_witness_active.style.opacity = 1;
         player1_current_active.style.background = '#868686';
         player2_current_active.style.background = '#028546';
-        players_background_active.style.right = 490 + 'px';
+        players_background_active.style.right = 500 + 'px';
     }
 }
 // Fonction Nouvelle Partie
