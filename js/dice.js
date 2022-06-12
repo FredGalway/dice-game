@@ -4,12 +4,12 @@ let roll_dice = document.querySelector('.roll_dice');
 let hold = document.querySelector('.hold');
 let cube = document.querySelector('.cube');
 
+// Variables player actif
 let player1_title_witness_active = document.querySelector('#player1 .witness');
-let player1_title_witness_default = document.querySelector('#player1 .witness');
 let player2_title_witness_active = document.querySelector('#player2 .witness');
-let player2_title_witness_default = document.querySelector('#player2 .witness');
-player1_title_witness_active.style.opacity = 1;
-player2_title_witness_active.style.opacity = 0;
+let player1_current_active = document.querySelector('#left_column .current');
+let player2_current_active = document.querySelector('#right_column .current');
+let players_background_active = document.querySelector('#active_bg');
 
 // Variables du Jeu
 let randNum, showClass, currentClass, game_status;
@@ -24,22 +24,15 @@ let win_score = 30;
 let audio_turn_lost = new Audio("audio/lost.wav");
 audio_turn_lost.volume = 0.3;
 
-function witness() {
-    if (current_player != 'p1') {
-        player1_title_witness_active.style.opacity = 1;
-        player2_title_witness_active.style.opacity = 0;
-    } else {
-        player1_title_witness_active.style.opacity = 0;
-        player2_title_witness_active.style.opacity = 1;
-    }
-}
-
 // Fonction lancement des paramètres du jeu
 function initialize() {
 
     current_player = 'p1';
     player1_title_witness_active.style.opacity = 1;
     player2_title_witness_active.style.opacity = 0;
+    player1_current_active.style.background = '#ea4d4c';
+    player2_current_active.style.background = '#ccc';
+    players_background_active.style.right = 490 + 'px';
     roll_dice.addEventListener("click", player1);
     roll_dice.removeEventListener("click", player2);
     ROUND_player1_tmp = 0;
@@ -59,13 +52,28 @@ function initialize() {
     document.getElementById("GLOBAL_player2").textContent = GLOBAL_player2;
     document.getElementById("game_status").textContent = game_status;
 
-    //console.clear();
+    console.clear();
     console.log("Nouvelle Partie / Player 1 ");
 }
 // Lancement des paramètres du jeu
 initialize();
 
-
+// changement Player actif
+function active_player() {
+    if (current_player != 'p1') {
+        player1_title_witness_active.style.opacity = 1;
+        player2_title_witness_active.style.opacity = 0;
+        player1_current_active.style.background = '#ea4d4c';
+        player2_current_active.style.background = '#ccc';
+        players_background_active.style.right = 490 + 'px';
+    } else {
+        player1_title_witness_active.style.opacity = 0;
+        player2_title_witness_active.style.opacity = 1;
+        player1_current_active.style.background = '#ccc';
+        player2_current_active.style.background = '#ea4d4c';
+        players_background_active.style.right = 0 + 'px';
+    }
+}
 
 // Fonction Nouvelle Partie
 function newGame() {
@@ -202,7 +210,7 @@ function switchPlayer() {
     ROUND_player1_tmp = 0;
     ROUND_player2_tmp = 0;
 
-    witness();
+    active_player();
 
     if (current_player == 'p1') {
         roll_dice.addEventListener("click", player2);
