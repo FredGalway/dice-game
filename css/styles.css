@@ -50,9 +50,9 @@ main {
     bottom: 0;
     left: 0;
     z-index: -1;
-    margin: -10px;
+    margin: -5px;
     border-radius: inherit;
-    background: linear-gradient(180deg, #cab9a5 -2.98%, #9E775E 68.14%, #996a52 104.54%);
+    background: linear-gradient(180deg, #f3f3f3 -2.98%, #c5cdcc 68.14%, #aeaeae 104.54%);
 }
 
 #active_bg {
@@ -155,7 +155,7 @@ main {
     width: 165px;
     height: 38px;
     color: #fff;
-    background-color: #b79771;
+    background-color: #A5A5A5;
     border-radius: 5px;
     border: 0;
     text-align: center;
@@ -163,7 +163,7 @@ main {
 }
 
 .bt_board:hover {
-    background-color: #997c58;
+    background-color: #028546;
     transition: background-color .5s;
 }
 
@@ -188,6 +188,14 @@ main {
     font-weight: 300;
     background-image: url("images/dice-shadow.png");
     background-repeat: repeat-x;
+}
+
+#cup {
+    display: inline-block;
+    width: 117px;
+    height: 117px;
+    background-image: url("images/cup.png");
+    background-repeat: no-repeat;
 }
 
 
@@ -298,8 +306,4 @@ main {
 
 .cube__face--6 {
     transform: rotateX(-90deg) translateZ(80px);
-}
-
-label {
-    margin-right: 0px;
 }

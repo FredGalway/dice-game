@@ -10,6 +10,7 @@ let player2_title_witness_active = document.querySelector('#player2 .witness');
 let player1_current_active = document.querySelector('#left_column .current');
 let player2_current_active = document.querySelector('#right_column .current');
 let players_background_active = document.querySelector('#active_bg');
+let cup = document.querySelector('#cup');
 
 // Variables du Jeu
 let randNum, showClass, currentClass, game_status;
@@ -30,13 +31,12 @@ function initialize() {
     player1_current_active.style.background = '#028546';
     player2_current_active.style.background = '#868686';
     players_background_active.style.right = 0 + 'px';
-    roll_dice.addEventListener("click", player1);
-    roll_dice.removeEventListener("click", player2);
     ROUND_player1 = 0;
     ROUND_player2 = 0;
     GLOBAL_player1 = 0;
     GLOBAL_player2 = 0;
     game_status = "Player 1's turn";
+    cup.style.display = 'none';
 
     // Remplacement de innerHTML par textcontent 
     document.getElementById("ROUND_player1").textContent = ROUND_player1;
@@ -45,9 +45,12 @@ function initialize() {
     document.getElementById("GLOBAL_player2").textContent = GLOBAL_player2;
     document.getElementById("game_status").textContent = game_status;
 
-    // Lancement des fonctions sur l'évènement click 
+    // Affichage BT / Lancement des fonctions sur l'évènement click 
+    roll_dice.style.display = 'table-cell';
+    hold.style.display = 'table-cell';
+    roll_dice.addEventListener("click", player1);
+    roll_dice.removeEventListener("click", player2);
     new_game.addEventListener("click", newGame);
-    roll_dice.addEventListener("click", player1)
     hold.addEventListener("click", hold_fx);
 }
 // Lancement des paramètres du jeu
@@ -55,20 +58,21 @@ initialize();
 
 // changement Player actif
 function active_player() {
-    if (current_player != 'p1') {
-        player1_title_witness_active.style.opacity = 1;
-        player2_title_witness_active.style.opacity = 0;
-        player1_current_active.style.background = '#028546';
-        player2_current_active.style.background = '#868686';
-        players_background_active.style.right = 0 + 'px';
-    } else {
+    if (current_player == 'p1') {
         player1_title_witness_active.style.opacity = 0;
         player2_title_witness_active.style.opacity = 1;
         player1_current_active.style.background = '#868686';
         player2_current_active.style.background = '#028546';
         players_background_active.style.right = 500 + 'px';
+    } else {
+        player1_title_witness_active.style.opacity = 1;
+        player2_title_witness_active.style.opacity = 0;
+        player1_current_active.style.background = '#028546';
+        player2_current_active.style.background = '#868686';
+        players_background_active.style.right = 0 + 'px';
     }
 }
+
 // Fonction Nouvelle Partie
 function newGame() {
     cube.classList.remove(currentClass);
@@ -153,6 +157,7 @@ function switchPlayer() {
         game_status = "Player 2's turn";
         ROUND_player1 = 0;
         document.getElementById("ROUND_player1").textContent = ROUND_player1;
+
     } else {
         roll_dice.addEventListener("click", player1);
         roll_dice.removeEventListener("click", player2);
@@ -160,9 +165,13 @@ function switchPlayer() {
         game_status = "Player 1's turn";
         ROUND_player2 = 0;
         document.getElementById("ROUND_player2").textContent = ROUND_player2;
+
     }
     document.getElementById("game_status").textContent = game_status;
+
+    // Autres fonctions
     winner();
+
 }
 
 function winner() {
@@ -170,10 +179,28 @@ function winner() {
     if (GLOBAL_player1 >= win_score) {
         game_status = "Player 1 wins!"
         document.getElementById("game_status").textContent = game_status;
+        roll_dice.style.display = 'none';
+        hold.style.display = 'none';
+        cup.style.display = 'inline-block';
+
+        player1_title_witness_active.style.opacity = 1;
+        player2_title_witness_active.style.opacity = 0;
+        player1_current_active.style.background = '#028546';
+        player2_current_active.style.background = '#868686';
+        players_background_active.style.right = 0 + 'px';
     }
     // Maximum GLOBAL Score Player1
-    else if (GLOBAL_player2 >= win_score) {
+    if (GLOBAL_player2 >= win_score) {
         game_status = "Player 2 wins!"
         document.getElementById("game_status").textContent = game_status;
+        roll_dice.style.display = 'none';
+        hold.style.display = 'none';
+        cup.style.display = 'inline-block';
+
+        player1_title_witness_active.style.opacity = 0;
+        player2_title_witness_active.style.opacity = 1;
+        player1_current_active.style.background = '#868686';
+        player2_current_active.style.background = '#028546';
+        players_background_active.style.right = 500 + 'px';
     }
 }
