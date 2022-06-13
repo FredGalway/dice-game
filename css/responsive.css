@@ -33,6 +33,10 @@ Fond Background
     #active_bg {
         opacity: 0;
     }
+    /* 
+----------------------------------------------------------------------------------------------------
+Game board / Columns
+---------------------------------------------------------------------------------------------------- */
     #game_board {
         position: relative;
         flex-direction: column;
@@ -47,6 +51,9 @@ Fond Background
         height: 100%;
         width: 33%;
     }
+    #right_column {
+        position: absolute;
+    }
     .bt_board {
         width: 100%;
         height: 50px;
@@ -60,5 +67,33 @@ Fond Background
     #new_game {
         position: absolute;
         bottom: 60px;
+    }
+    .icon {
+        margin-left: 30%;
+        margin-right: -25%;
+    }
+    .score {
+        margin-top: 220px;
+        margin-bottom: 0px;
+        margin-left: 3%;
+    }
+    .current {
+        margin-left: 6.5%;
+    }
+    #cup {
+        position: absolute;
+        bottom: 160px;
+        right: 20%;
+    }
+    /* 
+----------------------------------------------------------------------------------------------------
+Dice
+---------------------------------------------------------------------------------------------------- */
+    .cube {
+        margin-left: 37%;
+        margin-top: 80px;
+    }
+    #game_status {
+        margin-left: 27%;
     }
 }

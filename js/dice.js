@@ -19,7 +19,7 @@ let ROUND_player1;
 let ROUND_player2;
 let GLOBAL_player1;
 let GLOBAL_player2;
-let win_score = 100;
+let win_score = 20;
 let audio_turn_lost = new Audio("audio/lost.wav");
 audio_turn_lost.volume = 0.3;
 
