@@ -25,9 +25,7 @@ let ROUND_player1;
 let ROUND_player2;
 let GLOBAL_player1;
 let GLOBAL_player2;
-let win_score = 20;
-let audio_turn_lost = new Audio("audio/lost.wav");
-audio_turn_lost.volume = 0.3;
+let win_score = 100;
 
 // Fonction lancement des paramètres du jeu
 function initialize() {
@@ -112,7 +110,6 @@ function player1() {
     dynamic_dice_faces();
     // Cas Dé face 1
     if (showClass == "show-1") {
-        audio_turn_lost.play();
         switchPlayer();
     }
     // Cas Dé autres faces
@@ -128,7 +125,6 @@ function player2() {
     dynamic_dice_faces();
     // Cas Dé face 1
     if (showClass == "show-1") {
-        audio_turn_lost.play();
         switchPlayer();
     }
     // Cas Dé autres faces
@@ -158,7 +154,7 @@ function switchPlayer() {
 
     active_player();
     // Partie Mobile
-    if ($(window).width() <= 391) {
+    if ($(window).width() <= 800) {
         right_column.style.left = 0 + "px";
         left_column.style.left = -400 + "px";
         if (current_player !== 'p1') {
@@ -198,7 +194,7 @@ function switchPlayer() {
 
 function winner() {
     // Maximum GLOBAL Score Player1
-    if ($(window).width() <= 391) {
+    if ($(window).width() <= 800) {
 
         if (GLOBAL_player1 >= win_score) {
             console.log("Player 1 mobile wins!");
@@ -241,3 +237,13 @@ function winner() {
         players_background_active.style.right = 500 + 'px';
     }
 }
+
+window.addEventListener("orientationchange", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}, false);
+
+window.addEventListener("resize", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}, false);
