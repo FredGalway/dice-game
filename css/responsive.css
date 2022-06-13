@@ -19,7 +19,7 @@ Fond Background
     main {
         left: 0;
         top: 0;
-        height: auto;
+        height: 100%;
         transform: translate(0%, 0%);
         box-shadow: none;
     }
@@ -34,10 +34,31 @@ Fond Background
         opacity: 0;
     }
     #game_board {
-        margin-top: 0;
-        padding-top: 5%;
         position: relative;
         flex-direction: column;
         justify-content: space-between;
+        height: 100%;
+        margin-top: 0;
+        padding-top: 5%;
+    }
+    #center_column {
+        position: absolute;
+        display: table-cell;
+        height: 100%;
+        width: 33%;
+    }
+    .bt_board {
+        width: 100%;
+        height: 50px;
+        margin-left: 10%;
+    }
+    #btn_bottom_center {
+        position: absolute;
+        width: 100%;
+        bottom: 125px;
+    }
+    #new_game {
+        position: absolute;
+        bottom: 60px;
     }
 }
