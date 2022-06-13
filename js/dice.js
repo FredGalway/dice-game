@@ -194,6 +194,19 @@ function switchPlayer() {
 
 function winner() {
     // Maximum GLOBAL Score Player1
+    if ($(window).width() <= 391) {
+        if (GLOBAL_player1 >= win_score) {
+            console.log("Player 1 mobile wins!");
+            right_column.style.left = -400 + "px";
+            left_column.style.left = 0 + "px";
+        }
+        if (GLOBAL_player2 >= win_score) {
+            console.log("Player 2 mobile wins!");
+            right_column.style.left = 0 + "px";
+            left_column.style.left = -400 + "px";
+
+        }
+    }
     if (GLOBAL_player1 >= win_score) {
         game_status = "Player 1 wins!"
         document.getElementById("game_status").textContent = game_status;
