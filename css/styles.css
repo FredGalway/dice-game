@@ -1,4 +1,4 @@
-/* general stying for page */
+/* Styles général */
 
 * {
     box-sizing: border-box;
@@ -79,7 +79,6 @@ main {
     font-size: 12px;
     padding-top: 3%;
     color: #fff;
-    /*background-color: #ea4d4c;*/
     border-radius: 5px;
     text-align: center;
     vertical-align: middle;
