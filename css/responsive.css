@@ -53,11 +53,16 @@ Game board / Columns
     }
     #right_column {
         position: absolute;
+        left: -400px;
+    }
+    #left_column {
+        position: absolute;
+        left: 0px;
     }
     .bt_board {
         width: 100%;
         height: 50px;
-        margin-left: 10%;
+        margin-left: 12%;
     }
     #btn_bottom_center {
         position: absolute;

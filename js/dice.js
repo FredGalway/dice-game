@@ -12,6 +12,10 @@ let player2_current_active = document.querySelector('#right_column .current');
 let players_background_active = document.querySelector('#active_bg');
 let cup = document.querySelector('#cup');
 
+// Déclaration des variables mobile
+let left_column = document.querySelector('#left_column');
+let right_column = document.querySelector('#right_column');
+
 // Variables du Jeu
 let randNum, showClass, currentClass, game_status;
 let current_player = 'p1';
@@ -149,7 +153,21 @@ function hold_fx() {
 function switchPlayer() {
 
     active_player();
-
+    // Partie Mobile
+    if ($(window).width() <= 391) {
+        right_column.style.left = 0 + "px";
+        left_column.style.left = -400 + "px";
+        if (current_player !== 'p1') {
+            console.log("Player 1 mobile");
+            right_column.style.left = -400 + "px";
+            left_column.style.left = 0 + "px";
+        } else {
+            console.log("Player 2 mobile");
+            right_column.style.left = 0 + "px";
+            left_column.style.left = -400 + "px";
+        }
+    }
+    // Partie Desktop ou Tablette
     if (current_player == 'p1') {
         roll_dice.addEventListener("click", player2);
         roll_dice.removeEventListener("click", player1);
