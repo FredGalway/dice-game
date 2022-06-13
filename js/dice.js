@@ -15,6 +15,8 @@ let cup = document.querySelector('#cup');
 // Déclaration des variables mobile
 let left_column = document.querySelector('#left_column');
 let right_column = document.querySelector('#right_column');
+let player1_current = document.querySelector('#left_column .current');
+let player2_current = document.querySelector('#right_column .current');
 
 // Variables du Jeu
 let randNum, showClass, currentClass, game_status;
@@ -41,6 +43,8 @@ function initialize() {
     GLOBAL_player2 = 0;
     game_status = "Player 1's turn";
     cup.style.display = 'none';
+    player1_current.style.display = "inline-block";
+    player2_current.style.display = "inline-block";
 
     // Remplacement de innerHTML par textcontent 
     document.getElementById("ROUND_player1").textContent = ROUND_player1;
@@ -195,16 +199,18 @@ function switchPlayer() {
 function winner() {
     // Maximum GLOBAL Score Player1
     if ($(window).width() <= 391) {
+
         if (GLOBAL_player1 >= win_score) {
             console.log("Player 1 mobile wins!");
             right_column.style.left = -400 + "px";
             left_column.style.left = 0 + "px";
+            player1_current.style.display = "none";
         }
         if (GLOBAL_player2 >= win_score) {
             console.log("Player 2 mobile wins!");
             right_column.style.left = 0 + "px";
             left_column.style.left = -400 + "px";
-
+            player2_current.style.display = "none";
         }
     }
     if (GLOBAL_player1 >= win_score) {

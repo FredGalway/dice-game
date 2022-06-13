@@ -17,6 +17,7 @@ Fond Background
     }
     /* Styles du Jeu */
     main {
+        display: block;
         left: 0;
         top: 0;
         height: 100%;
@@ -44,6 +45,11 @@ Game board / Columns
         height: 100%;
         margin-top: 0;
         padding-top: 5%;
+        /* Created with https://www.css-gradient.com */
+        background: #D7D7D7;
+        background: -webkit-linear-gradient(top, #D7D7D7, #FFFFFF);
+        background: -moz-linear-gradient(top, #D7D7D7, #FFFFFF);
+        background: linear-gradient(to bottom, #D7D7D7, #FFFFFF);
     }
     #center_column {
         position: absolute;
@@ -81,13 +87,15 @@ Game board / Columns
         margin-top: 220px;
         margin-bottom: 0px;
         margin-left: 3%;
+        font-size: 160px;
+        font-weight: 200;
     }
     .current {
         margin-left: 6.5%;
     }
     #cup {
         position: absolute;
-        bottom: 160px;
+        bottom: 25%;
         right: 20%;
     }
     /* 
@@ -96,7 +104,7 @@ Dice
 ---------------------------------------------------------------------------------------------------- */
     .cube {
         margin-left: 37%;
-        margin-top: 80px;
+        margin-top: 60px;
     }
     #game_status {
         margin-left: 27%;
