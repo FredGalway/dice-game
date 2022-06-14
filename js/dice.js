@@ -237,13 +237,3 @@ function winner() {
         players_background_active.style.right = 500 + 'px';
     }
 }
-
-window.addEventListener("orientationchange", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}, false);
-
-window.addEventListener("resize", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}, false);
