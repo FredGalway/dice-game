@@ -64,6 +64,7 @@ initialize();
 
 // changement Player actif
 function active_player() {
+
     if (current_player == 'p1') {
         player1_title_witness_active.style.opacity = 0;
         player2_title_witness_active.style.opacity = 1;
@@ -153,20 +154,21 @@ function hold_fx() {
 function switchPlayer() {
 
     active_player();
+
     // Partie Mobile
     if ($(window).width() <= 800) {
         right_column.style.left = 0 + "px";
         left_column.style.left = -400 + "px";
         if (current_player !== 'p1') {
-            console.log("Player 1 mobile");
             right_column.style.left = -400 + "px";
             left_column.style.left = 0 + "px";
+
         } else {
-            console.log("Player 2 mobile");
             right_column.style.left = 0 + "px";
             left_column.style.left = -400 + "px";
         }
     }
+
     // Partie Desktop ou Tablette
     if (current_player == 'p1') {
         roll_dice.addEventListener("click", player2);
@@ -183,13 +185,17 @@ function switchPlayer() {
         game_status = "Player 1's turn";
         ROUND_player2 = 0;
         document.getElementById("ROUND_player2").textContent = ROUND_player2;
-
+    }
+    if ($(window).width() <= 800) {
+        if (current_player == 'p1') {
+            game_status = "P2 score : " + GLOBAL_player2;
+        } else {
+            game_status = "P1 score : " + GLOBAL_player1;
+        }
     }
     document.getElementById("game_status").textContent = game_status;
-
     // Autres fonctions
     winner();
-
 }
 
 function winner() {
@@ -197,13 +203,11 @@ function winner() {
     if ($(window).width() <= 800) {
 
         if (GLOBAL_player1 >= win_score) {
-            console.log("Player 1 mobile wins!");
             right_column.style.left = -400 + "px";
             left_column.style.left = 0 + "px";
             player1_current.style.display = "none";
         }
         if (GLOBAL_player2 >= win_score) {
-            console.log("Player 2 mobile wins!");
             right_column.style.left = 0 + "px";
             left_column.style.left = -400 + "px";
             player2_current.style.display = "none";

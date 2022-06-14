@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Frédéric Moitry">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <title>Dice Game</title>
+    <!-- Font Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="css/images/favicon.svg">
+    <link rel="apple-touch-icon" href="css/images/touch-icon-iphone.svg">
+    <!-- Dice CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- Intégration jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <!-- Fond 1 -->
+        <div class="gradient_div">
+            <!-- Fond 2 -->
+            <div id="active_bg"></div>
+
+            <!-- Plateau de Jeu -->
+            <div id="game_board">
+
+                <!-- Colonne de gauche -->
+                <div id="left_column">
+                    <div id="player1" class="player_title">Player 1 <span class="witness"></span></div>
+                    <h2 id="GLOBAL_player1" class="score"></h2>
+                    <div class="current">Current<span id="ROUND_player1">0</span></div>
+                </div>
+
+                <!-- Colonne centrale -->
+                <div id="center_column">
+                    <button id="new_game" class="bt_board"><img class="icon" src="css/images/bt_icon_add.svg" alt="button New Game">New Game</button>
+                    <div class="cube">
+                        <div class="cube__face cube__face--1 "></div>
+                        <div class="cube__face cube__face--2 "></div>
+                        <div class="cube__face cube__face--3 "></div>
+                        <div class="cube__face cube__face--4 "></div>
+                        <div class="cube__face cube__face--5 "></div>
+                        <div class="cube__face cube__face--6 "></div>
+                    </div>
+                    <p id="game_status"></p>
+                    <div id="btn_bottom_center">
+                        <button class="roll_dice bt_board"><img class="icon" src="css/images/bt_icon_roll.svg" alt="button Roll Dice">Roll Dice</button>
+                        <button class="hold bt_board"><img class="icon" src="css/images/bt_icon_hold.svg" alt="button Hold">Hold</button>
+                    </div>
+                    <div id="cup"></div>
+                </div>
+
+                <!-- Colonne de droite -->
+                <div id="right_column">
+                    <div id="player2" class="player_title">Player 2 <span class="witness"></span></div>
+                    <h2 id="GLOBAL_player2" class="score"></h2>
+                    <div class="current">Current<span id="ROUND_player2">0</span></div>
+                </div>
+            </div>
+            <!-- Dice Script -->
+            <script src="js/dice.js "></script>
+        </div>
+    </main>
+</body>
+
+</html>

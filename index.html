@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta name="author" content="Frédéric Moitry">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
     <title>Dice Game</title>
     <!-- Font Lato -->
@@ -15,60 +15,66 @@
     <!-- Favicon -->
     <link rel="icon" href="css/images/favicon.svg">
     <link rel="apple-touch-icon" href="css/images/touch-icon-iphone.svg">
-    <!-- Dice CSS -->
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
     <!-- Intégration jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="css/rules.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-    <main>
-        <!-- Fond 1 -->
-        <div class="gradient_div">
-            <!-- Fond 2 -->
-            <div id="active_bg"></div>
+    <div class="jumbotron text-center">
+        <h1>3D Dice Game</h1>
+        <p>Reach 100 points and avoid the dice's face 1!</p>
+    </div>
 
-            <!-- Plateau de Jeu -->
-            <div id="game_board">
+    <div class="container">
 
-                <!-- Colonne de gauche -->
-                <div id="left_column">
-                    <div id="player1" class="player_title">Player 1 <span class="witness"></span></div>
-                    <h2 id="GLOBAL_player1" class="score"></h2>
-                    <div class="current">Current<span id="ROUND_player1">0</span></div>
-                </div>
+        <div>
+            <h3>Game rules</h3>
 
-                <!-- Colonne centrale -->
-                <div id="center_column">
-                    <button id="new_game" class="bt_board"><img class="icon" src="css/images/bt_icon_add.svg" alt="button New Game">New Game</button>
-                    <div class="cube">
-                        <div class="cube__face cube__face--1 "></div>
-                        <div class="cube__face cube__face--2 "></div>
-                        <div class="cube__face cube__face--3 "></div>
-                        <div class="cube__face cube__face--4 "></div>
-                        <div class="cube__face cube__face--5 "></div>
-                        <div class="cube__face cube__face--6 "></div>
-                    </div>
-                    <p id="game_status"></p>
-                    <div id="btn_bottom_center">
-                        <button class="roll_dice bt_board"><img class="icon" src="css/images/bt_icon_roll.svg" alt="button Roll Dice">Roll Dice</button>
-                        <button class="hold bt_board"><img class="icon" src="css/images/bt_icon_hold.svg" alt="button Hold">Hold</button>
-                    </div>
-                    <div id="cup"></div>
-                </div>
+            <ul>
+                <li>The game includes 2 players on a single desktop version screen or simultaneously on the mobile version.</li>
+                <li>Each player has a temporary score (in green) and an overall score in large size.</li>
+                <li>At each turn, the player has his temporary score initialized to 0 and can roll a die as many times as he wishes.</li>
+                <li>The result of a throw is added to the temporary score. During his turn, the player can decide at any time to:</li>
+                <br>
+                <ul>
+                    <li><strong>Click on the "Roll dice" option</strong> to increase the temporary score. If he rolls a 1, the temporary score is lost and his turn ends.</li>
+                    <li><strong>Click on the “Hold” option</strong>, which allows to keep the points. It will then be the other player's turn.</li>
 
-                <!-- Colonne de droite -->
-                <div id="right_column">
-                    <div id="player2" class="player_title">Player 2 <span class="witness"></span></div>
-                    <h2 id="GLOBAL_player2" class="score"></h2>
-                    <div class="current">Current<span id="ROUND_player2">0</span></div>
-                </div>
-            </div>
-            <!-- Dice Script -->
-            <script src="js/dice.js "></script>
+                    <li>The first player to <strong>reach 100 points</strong> wins the game and the trophee!</li>
+                </ul>
+            </ul>
+            <br><br>
+            <a class="game_bt" href="game.html">Play now !</a>
         </div>
-    </main>
+        <br>
+        <div>
+            <h3>Desktop version</h3>
+            <p>The desktop version offers a game interface with two players simultaneously. It is centered in the screen and it's compatible for tablets.</p>
+            <img src="css/rules/desktop-sreen.png" alt="Dice game for Desktop" class="screen_desktop">
+        </div>
+        <br><br>
+        <div>
+            <h3>Mobile version</h3>
+            <p>The mobile version offers one player at a time but with the particularity of seeing the opponent's score!</p>
+            <img src="css/rules/mobile-sreen.png" alt="Dice game for mobiles" class="screen_mobile">
+        </div>
+        <br><br>
+        <div>
+            <h3>Infos</h3>
+            <p>This game is a Javascript challenge as part of my <a href="https://www.studi.com/fr/metier/developpeur-python">STUDI training</a> of "Web application development and of Python development".</p>
+            <h5>Author :
+                <a href="https://fredericmoitry.com/portfolio/">Frédéric Moitry</a></h5>
+            <br><br>
+        </div>
+    </div>
+    </div>
+
 </body>
 
 </html>
